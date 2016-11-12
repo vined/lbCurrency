@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="lt">
+<head>
+    <meta charset="utf-8">
+    <title>Valiutų skaičiuoklė pagal Lietuvos Banko kursus</title>
+    <link rel="stylesheet" type="text/css" href="lbCurrency.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+    <div class="lbc-title">
+        <h1>Valiutų skaičiuoklė pagal Lietuvos Banko kursus</h1>
+    </div>
+    
+    <div class=lbc-form">
+        <label>Valiutos kodas</label>
+        <input type="text" id="date"/>
+        <button id="updateBtn">Gauti kursą</button>
+    </div>
+    <div id="rateContainer" class="lbc-content"></div>
+</body>
+<script>
+(function () {
+    'use strict'
+
+    updateRates('2016-11-02');
+
+    $('#updateBtn').on('click', function () {
+        updateRates($('#date')[0].value);
+    });
+
+    function updateRates(date) {
+        $.ajax({
+            url: '/getRates/' + date,
+            method: 'GET'
+        }).then(function(data) {
+              console.log(data);
+              $('#rateContainer').html(data);
+        });
+    }
+})();
+</script>
+</html>
