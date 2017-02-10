@@ -12,15 +12,19 @@
     </div>
     
     <div class=lbc-form">
-        <label>Valiutos kodas</label>
+        <label>Data</label>
         <input type="text" id="date"/>
         <button id="updateBtn">Gauti kursą</button>
     </div>
     <div id="rateContainer" class="lbc-content"></div>
+
+    <div id="button"></div>
+
+    <script src="../dist/bundle.js"></script>
 </body>
 <script>
 (function () {
-    'use strict'
+    'use strict';
 
     updateRates('2016-11-02');
 

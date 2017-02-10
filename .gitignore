@@ -4,3 +4,8 @@
 **/*.swp
 **/*.swo
 **/*.o
+
+**/.idea
+**/bin
+node_modules
+web/public/dist

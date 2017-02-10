@@ -23,7 +23,7 @@ func getRatesHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 
-    http.Handle("/", http.FileServer(http.Dir("./web/")))
+    http.Handle("/", http.FileServer(http.Dir("./web/public/")))
     http.HandleFunc("/getRates/", getRatesHandler)
     http.ListenAndServe(":8001", nil)
 }
